@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import classes from './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -34,18 +34,18 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <div className={classes.App}>
+        <div className={classes.App_header}>
+          <img src={logo} className={classes.App_logo} alt="logo" />
           <h2>ROC Test page</h2>
         </div>
-        <p className="App-intro">
+        <p className={classes.App_intro}>
           {'This is '}
           <a href="https://github.com/mars/heroku-cra-node">
             {'create-react-app with a custom Node/Express server'}
           </a><br/>
         </p>
-        <p className="App-intro">
+        <p className={classes.App_intro}>
           {this.state.fetching
             ? 'Fetching message from API'
             : this.state.message}
