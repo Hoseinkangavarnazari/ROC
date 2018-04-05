@@ -2,26 +2,8 @@ const express = require('express');
 const path = require('path');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
-var mongoose = require('mongoose');
+var mongoose = require('./Connection/connectToDb');
 
-
-var options = {
-  server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
-  replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }
-};
-
-//read-only user 
-var mongodbUri = 'mongodb://rocdb:roc12345@ds135399.mlab.com:35399/roc';
-
-mongoose.connect(mongodbUri, options);
-var conn = mongoose.connection;
-
-conn.on('error', console.error.bind(console, 'connection error:'));
-
-conn.once('open', function () {
-  // Wait for the database connection to establish, then start the app.            
-  console.log("mlab_is_ok");
-});
 
 
 var Schema = mongoose.Schema;
