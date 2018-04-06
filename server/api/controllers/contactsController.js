@@ -1,19 +1,20 @@
+
 // we should import models here 
-// var something = require('somewhere'); 
+// var something = require('somewhenpmre'); 
 let contacts = require('../models/contacts.model')
 
 // return all contacts name 
 exports.genericList = function (req, res) {
+    var result;
 
-    let result;
-    users.findOne({}, function (err, data) {
+    contacts.findOne({}, function (err, data) {
         if (err) {
             return handleError(err);
         };
-        console.log('request received : genericList', data);
-        result = data;
+        console.log('request received : genericList', data.name.firstName);
+        res.send(`data receivied  : name: ${data.name.firstName} -- lastname: ${data.name.lastName}`);
     });
-    res.send(`data receivied  : ${data}`);
+
 }
 
 //return one contacts

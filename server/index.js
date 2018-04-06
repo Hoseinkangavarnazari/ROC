@@ -4,8 +4,13 @@ const path = require('path');
 
 
 
-var externalRoutes = require('./routes/externalRoutes');
+let externalRoutes = require('./routes/externalRoutes');
 app.use('/externalRoutes', externalRoutes);
+
+
+let contacts = require('./api/routes/contacts');
+app.use('/contacts', contacts);
+
 
 
 const PORT = process.env.PORT || 5000;
@@ -26,7 +31,7 @@ const PORT = process.env.PORT || 5000;
   //   response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
   // });
 
-  
+
   app.listen(PORT, function () {
     console.log(`Dev app listening on port ${PORT}!`);
   });
