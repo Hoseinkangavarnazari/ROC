@@ -27,7 +27,7 @@ module.exports = (function () {
     router.post('/create', contactsController.createContact);
 
     // DELETE request for eliminate contact
-    router.delete('/delete/:id', contactsController.deleteContact)
+    router.delete('/delete', contactsController.deleteContact)
 
     return router;
 })();
