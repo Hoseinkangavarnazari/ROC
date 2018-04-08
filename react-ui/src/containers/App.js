@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import classes from './App.css';
-import Contacts from './Contacts/Contacts';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import Contacts from '../Contacts/Contacts';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
 
@@ -20,15 +20,13 @@ class App extends Component {
   };
 
 
-
-
   render() {
 
     return (
       <div className={classes.App}>
         <h1>Online Chat</h1>
         <div className={classes.ContactsContainer}>
-          {contacts}
+          {Contacts}
         </div>
         <div className={classes.MainContainer}></div>
       </div>
