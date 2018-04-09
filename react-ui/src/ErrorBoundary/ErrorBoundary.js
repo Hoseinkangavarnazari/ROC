@@ -1,3 +1,5 @@
+
+//when an error will happen and you can't handle that
 import React, { Component } from 'react';
 
 class ErrorBoundary extends Component {
@@ -23,8 +25,9 @@ class ErrorBoundary extends Component {
         }
 
 
-    }
+    } 
 }
 
 
 export default ErrorBoundary ; 
+
