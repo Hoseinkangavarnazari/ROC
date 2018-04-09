@@ -2,14 +2,15 @@ const mongoose = require('../../Connection/connectToDb');
 
 const Schema = mongoose.Schema;
 
-const contacts = new Schema({
+const user = new Schema({
     name: {
         firstName: { type: String, required: true },
         lastName: { type: String, required: true }
     },
     number: { type: Number, required: true },
-    links: Array
+    links:Array
 }
 );
 
-module.exports = mongoose.model('contacts', contacts, 'contacts'); 
+//colection moved to bottom line
+module.exports = mongoose.model('user', user, 'users'); 

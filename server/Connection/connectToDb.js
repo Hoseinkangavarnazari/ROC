@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var URL = 'mongodb://rocdb:roc12345@ds135399.mlab.com:35399/roc';
+var URL = 'mongodb://ashroc:iotroc@ds135399.mlab.com:35399/roc';
 
 var options = {
     server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },

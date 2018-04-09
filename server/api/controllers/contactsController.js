@@ -1,7 +1,7 @@
 
 // we should import models here 
 // var something = require('somewhenpmre'); 
-let contacts = require('../models/contacts.model')
+let contact = require('../models/contacts.model')
 
 // return all contacts name 
 exports.genericList = function (req, res) {
@@ -25,7 +25,10 @@ exports.oneContact = function (req, res) {
 
 //create one contact
 exports.createContact = function (req, res) {
-    res.send('NOT IMPELEMENTED .. ');
+    var newUser = new contact();
+    newUser.firstName = req.body.firstName;
+    newUser.lastName = req.body.lastName;
+    newUser.number = req.newUser.number;
 }
 
 //delete one contact
