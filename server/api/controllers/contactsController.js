@@ -1,33 +1,43 @@
 
 // we should import models here 
 // var something = require('somewhenpmre'); 
-let contacts = require('../models/contacts.model');
-var bodyParser = require("body-parser");
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+let usersModel = require('../models/users.model')
 
 // return all contacts name 
-exports.genericList = function (req, res) {
-    res.send('NOT IMPELEMENTED .. ');
+exports.previewUsers = function (req, res) {
+
+    //find the specific user's contacts in DB
+    usersModel.findOne({'_id':req.query.id},'links', function(err, userLinks){
+        if (err){
+            console.log("err in finding all contacts for user: " + id + err);
+            res.send({ret: false});
+        } 
+        else{
+            //map Id's to their names
+            usersModel.find({'_id':{$in: userLinks.links}},'_id name', function(err, contacts){
+                if (err){
+                    console.log("err in finding all contacts for user: " + id + err);
+                    res.send({ret: false});
+                } 
+                else res.send(contacts);
+            });
+        } 
+    });  
+
 }
 
 //return one contacts
 exports.oneContact = function (req, res) {
-    var result;
-
-    contacts.findOne({}, function (err, data) {
-        if (err) {
-            return handleError(err);
-        };
-        console.log('request received : genericList', data.name.firstName);
-        res.send(`data receivied  : name: ${data.name.firstName} -- lastname: ${data.name.lastName}`);
-    });
+    res.send('NOT IMPELEMENTED .. ');
 }
 
 
 //create one contact
 exports.createContact = function (req, res) {
+
+
+
     let firstName = req.body.first;
     let lastName = req.body.last;
     let number = req.body.number;

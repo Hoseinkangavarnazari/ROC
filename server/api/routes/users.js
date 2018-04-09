@@ -1,8 +1,9 @@
 var express = require('express');
 
-
 // Require controller modules.
-var contactsController = require('../controllers/contactsController');
+var usersController = require('../controllers/usersController');
+
+
 
 module.exports = (function () {
     'use strict';
@@ -10,16 +11,16 @@ module.exports = (function () {
 
 
     // GET catalog home page.
-    router.get('/all', contactsController.previewUsers);
+    router.get('/all', usersController.genericList);
 
     // GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
-    router.get('/one', contactsController.oneContact);
+    router.get('/one', usersController.oneUser);
 
     // POST request for create contact
-    router.post('/add', contactsController.createContact);
+    router.post('/create', usersController.createUser);
 
     // DELETE request for eliminate contact
-    router.delete('/delete', contactsController.deleteContact)
+    router.delete('/delete/:id', usersController.deleteUser);
 
     return router;
 })();
