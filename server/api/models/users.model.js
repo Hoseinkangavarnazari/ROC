@@ -9,8 +9,7 @@ const user = new Schema({
     },
     number: { type: Number, required: true },
     links:Array
-}
-);
+});
 
 //colection moved to bottom line
 module.exports = mongoose.model('user', user, 'users'); 

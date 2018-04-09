@@ -1,20 +1,28 @@
 
 // we should import models here 
 // var something = require('somewhenpmre'); 
-let contact = require('../models/contacts.model')
+let usersModel = require('../models/users.model')
 
 // return all contacts name 
-exports.genericList = function (req, res) {
-    var result;
+exports.previewUsers = function (req, res) {
 
-    contacts.findOne({}, function (err, data) {
-        if (err) {
-            return handleError(err);
-        };
-        console.log('request received : genericList', data.name.firstName);
-        res.send(`data receivied  : name: ${data.name.firstName} -- lastname: ${data.name.lastName}`);
-    });
-
+    //find the specific user's contacts in DB
+    usersModel.findOne({'_id':req.query.id},'links', function(err, userLinks){
+        if (err){
+            console.log("err in finding all contacts for user: " + id + err);
+            res.send({ret: false});
+        } 
+        else{
+            //map Id's to their names
+            usersModel.find({'_id':{$in: userLinks.links}},'_id name', function(err, contacts){
+                if (err){
+                    console.log("err in finding all contacts for user: " + id + err);
+                    res.send({ret: false});
+                } 
+                else res.send(contacts);
+            });
+        } 
+    });  
 }
 
 //return one contacts

@@ -16,6 +16,9 @@ app.use('/externalRoutes', externalRoutes);
 let users = require('./api/routes/users');
 app.use('/users', users);
 
+let contacts = require('./api/routes/contacts');
+app.use('/contact', contacts)
+
 
 
 const PORT = process.env.PORT || 5000;
