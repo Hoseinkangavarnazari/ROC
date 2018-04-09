@@ -1,6 +1,7 @@
 
 // we should import models here 
 // var something = require('somewhenpmre'); 
+
 let usersModel = require('../models/users.model')
 
 // return all contacts name 
@@ -23,6 +24,7 @@ exports.previewUsers = function (req, res) {
             });
         } 
     });  
+
 }
 
 //return one contacts
@@ -33,13 +35,34 @@ exports.oneContact = function (req, res) {
 
 //create one contact
 exports.createContact = function (req, res) {
-    var newUser = new contact();
-    newUser.firstName = req.body.firstName;
-    newUser.lastName = req.body.lastName;
-    newUser.number = req.newUser.number;
+
+
+
+    let firstName = req.body.first;
+    let lastName = req.body.last;
+    let number = req.body.number;
+
+    var record = new contacts({
+        name: {
+            firstName: firstName,
+            lastName: lastName
+        },
+        number: number
+    })
+
+    record.save(function (err) {
+        if (err) return handleError(err);
+        res.send(`data saved : create user name :  ${req.body.first}`);
+    })
+
+
 }
 
 //delete one contact
 exports.deleteContact = function (req, res) {
+    let firstName = req.body.first;
+    let lastName = req.body.last;
+
+    query.remove({  }, callback)
     res.send('NOT IMPELEMENTED .. ');
 }

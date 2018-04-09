@@ -40,9 +40,7 @@ app.get('/api', function (req, res) {
 //   response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
 // });
 
-
-app.listen(PORT, function () {
-  console.log(`Dev app listening on port ${PORT}!`);
-});
-
+  app.listen(PORT, function () {
+    console.log(`Dev app listening on port ${PORT}!`);
+  });
 

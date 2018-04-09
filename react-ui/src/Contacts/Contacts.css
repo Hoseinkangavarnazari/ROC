@@ -1,0 +1,35 @@
+.Contacts {
+    position: relative;
+    height: 40px;
+    width: 300px;
+    background: #3949AB;
+    color: white;
+    text-align: left;
+    padding-left: 10px;
+}
+.Contacts:hover { 
+    background:#1A237E; 
+}
+
+.Contacts button {
+    background: #3949AB;
+    border: 1px white solid;
+    color: white;
+    border-radius: 3px;
+    margin-left: 3px;
+}
+
+.Contacts button:hover {
+    background: #9FA8DA;
+}
+
+.gButton {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+
+.title {
+    position: absolute;
+    top: -5px;
+}

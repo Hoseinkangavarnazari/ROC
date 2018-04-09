@@ -1,58 +1,62 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import classes from './App.css';
+import Contacts from '../Contacts/Contacts';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+
+
+
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      message: null,
-      fetching: true
-    };
-  }
 
-  componentDidMount() {
-    fetch('/api')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`status ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(json => {
-        this.setState({
-          message: json.message,
-          fetching: false
-        });
-      }).catch(e => {
-        this.setState({
-          message: `API call failed: ${e}`,
-          fetching: false
-        });
-      })
-  }
+  state = {
+    contacts: [
+      {
+        id: '121232',
+        name: 'Max'
+      },
+      {
+        id: '12121',
+        name: 'Minirol'
+      },
+      {
+        id: '1212321',
+        name: 'javad'
+      }
+    ]
+  };
+
 
   render() {
-    return (
-      <div className={classes.App}>
-        <div className={classes.App_header}>
-          <img src={logo} className={classes.App_logo} alt="logo" />
-          <h2>ROC Test page</h2>
+
+
+    let contacts_ = null;
+    if (true) {
+      contacts_ = (
+        <div>
+          {
+            this.state.contacts.map((contact, index) => {
+              return <ErrorBoundary key={contact.id}>
+                <Contacts name={contact.name} />
+              </ErrorBoundary>
+            })
+          }
         </div>
-        <p className={classes.App_intro}>
-          {'This is '}
-          <a href="https://github.com/mars/heroku-cra-node">
-            {'create-react-app with a custom Node/Express server'}
-          </a><br/>
-        </p>
-        <p className={classes.App_intro}>
-          {this.state.fetching
-            ? 'Fetching message from API'
-            : this.state.message}
-        </p>
+      )
+    }
+    return (
+     
+      <div className={classes.App}>
+      
+        <div className={classes.ContactsContainer}>
+          {contacts_}
+        </div>
+        <div className={classes.MainContainer}></div>
       </div>
+     
     );
   }
 }
+
 
 export default App;
