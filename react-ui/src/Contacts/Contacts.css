@@ -1,7 +1,15 @@
 .Contacts {
-    width: 200px;
+    position: relative;
+    height: 40px;
+    width: 300px;
     background: blue;
     color: white;
-    text-align: center;
+    text-align: left;
+    padding-left: 10px; 
 }
 
+.Contacts button { 
+    position: absolute;
+    right: 0px; 
+    top: 9px;
+}
