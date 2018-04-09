@@ -17,6 +17,7 @@
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "express": "^4.14.1",
+    "material-ui": "^1.0.0-beta.41",
     "mongoose": "^5.0.13"
   },
   "repository": {

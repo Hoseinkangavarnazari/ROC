@@ -3,22 +3,8 @@ import logo from './logo.svg';
 import classes from './App.css';
 import Contacts from '../Contacts/Contacts';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import Avatar from 'material-ui/Avatar';
-import {indigo500} from 'material-ui/styles/colors';
 
-const muiTheme = getMuiTheme({
-  palette: {
-    textColor: indigo500,
-    fontSize: 10,
-  },
-  appBar: {
-    height: 40,
-    color:indigo500,
-    fontSize: 10,
-  },
-});
+
 
 
 class App extends Component {
@@ -59,16 +45,15 @@ class App extends Component {
       )
     }
     return (
-      // <div className={classes.App}>
-      //   <h1>Online Chat</h1>
-      //   <div className={classes.ContactsContainer}>
-      //     {contacts_}
-      //   </div>
-      //   <div className={classes.MainContainer}></div>
-      // </div>
-      <MuiThemeProvider muiTheme={muiTheme} >
-        <Avatar backgroundColor="#000"/> just test
-      </MuiThemeProvider>
+     
+      <div className={classes.App}>
+      
+        <div className={classes.ContactsContainer}>
+          {contacts_}
+        </div>
+        <div className={classes.MainContainer}></div>
+      </div>
+     
     );
   }
 }

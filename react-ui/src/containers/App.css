@@ -32,9 +32,10 @@
 }
 
 .ContactsContainer {
+    position: fixed;
     background: #eee;
-   
-
+    width: 310px;
+    height: 100%;
 }
 
 .MainContainer {

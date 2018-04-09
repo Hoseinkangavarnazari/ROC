@@ -12,11 +12,11 @@ const contacts = (props) => {
 
     return (
         <div className={classes.Contacts}>
-            <p onClick={props.pageSpec}>{props.name}</p>
-            <div>
-            <button className={classes.Contacts} onClick={props.voiceCall}>voice</button>
-            <button className={classes.Contacts} onClick={props.videoCall}>video</button>
-        </div>
+            <p className={classes.title} onClick={props.pageSpec}>{props.name}</p>
+            <div className={classes.gButton}>
+                <button onClick={props.voiceCall}>voice</button>
+                <button onClick={props.videoCall}>video</button>
+            </div>
         </div>
     )
 };
