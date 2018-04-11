@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Contacts.css';
+import classes from './Contact.css';
 
 
 const contacts = (props) => {

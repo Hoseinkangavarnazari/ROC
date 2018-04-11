@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Contacts from '../../Contacts/Contacts';
+import Contacts from '../../components/Contacts/Contacts';
 import ErrorBoundary from '../../ErrorBoundary/ErrorBoundary';
-import Profile from '../../components/Profile/Profile'
+import Profile from '../../components/Profile/Profile';
 
 class App extends Component {
 
@@ -38,15 +38,10 @@ class App extends Component {
     let contacts_ = null;
     if (true) {
       contacts_ = (
-        <div>
-          {
-            this.state.contacts.map((contact, index) => {
-              return <ErrorBoundary key={contact.id}>
-                <Contacts click={() => this.showContactPage(contact.id)} name={contact.name} />
-              </ErrorBoundary>
-            })
-          }
-        </div>
+          <Contacts
+          contacts={this.state.contacts}
+          showContactPage={this.showContactPage}
+          />
       )
     }
     return (
