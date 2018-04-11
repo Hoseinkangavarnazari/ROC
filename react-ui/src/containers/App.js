@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import classes from './App.css';
 import Contacts from '../Contacts/Contacts';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
-
-
-
+import Profile from '../components/Profile/Profile'
 
 class App extends Component {
 
@@ -16,7 +13,7 @@ class App extends Component {
         name: 'Max'
       },
       {
-        id: '12121',
+        id: '12121', 
         name: 'Minirol'
       },
       {
@@ -26,6 +23,14 @@ class App extends Component {
     ]
   };
 
+  showContactPage = (id) => {
+    const contactIndex = this.state.contacts.findIndex(p => {
+      return p.id === id;
+    });
+
+    const contact = { ...this.state.contacts[contactIndex] };
+    console.log(contact.name);
+  }
 
   render() {
 
@@ -37,7 +42,7 @@ class App extends Component {
           {
             this.state.contacts.map((contact, index) => {
               return <ErrorBoundary key={contact.id}>
-                <Contacts name={contact.name} />
+                <Contacts click={() => this.showContactPage(contact.id)} name={contact.name} />
               </ErrorBoundary>
             })
           }
@@ -45,15 +50,15 @@ class App extends Component {
       )
     }
     return (
-     
+
       <div className={classes.App}>
-      
+        <Profile />
         <div className={classes.ContactsContainer}>
           {contacts_}
         </div>
         <div className={classes.MainContainer}></div>
       </div>
-     
+
     );
   }
 }

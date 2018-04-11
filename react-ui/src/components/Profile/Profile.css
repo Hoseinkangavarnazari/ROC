@@ -1,0 +1,26 @@
+.Profile {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 310px;
+    height: 100px;
+    background: #1565C0;
+    padding-left: 10px; 
+}
+.Avatar { 
+    position: absolute;
+    top:24%; 
+    border-radius: 50px; 
+    background: rgb(161, 153, 168); 
+    height: 50px;
+    width: 50px;
+}
+
+.Name { 
+    position: absolute;
+    top:40%; 
+    left: 30%;
+    color: #eee;
+    font-size: 18px;
+}
