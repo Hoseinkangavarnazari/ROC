@@ -11,16 +11,19 @@ module.exports = (function () {
 
 
     // GET catalog home page.
-    router.get('/all', usersController.genericList);
+    router.get('/allContacts', usersController.allContacts);
 
     // GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
-    router.get('/one', usersController.oneUser);
+    router.get('/oneContactInfo', usersController.oneUser);
 
     // POST request for create contact
-    router.post('/create', usersController.createUser);
+    router.post('/SignUpUser', usersController.createUser);
+
+    // POST request for create contact
+    router.post('/addContact', usersController.addContact);
 
     // DELETE request for eliminate contact
-    router.delete('/delete/:id', usersController.deleteUser);
+    router.delete('/delete/:id', usersController.deleteContact);
 
     return router;
 })();
