@@ -7,7 +7,7 @@ const user = new Schema({
         firstName: { type: String, required: true },
         lastName: { type: String, required: true }
     },
-    number: { type: Number, required: true },
+    number: { type: Number, required: true, unique: true },
     links:Array
 });
 
