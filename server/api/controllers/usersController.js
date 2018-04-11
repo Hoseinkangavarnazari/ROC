@@ -1,11 +1,5 @@
 
-// we should import models here 
-// var something = require('somewhenpmre'); 
 let usersModel = require('../models/users.model')
-// var bodyParser = require("body-parser");
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(bodyParser.json());
-
 
 
 //return one users
