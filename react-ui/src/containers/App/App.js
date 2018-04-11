@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Contacts from '../Contacts/Contacts';
-import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
-import Profile from '../components/Profile/Profile'
+import Contacts from '../../Contacts/Contacts';
+import ErrorBoundary from '../../ErrorBoundary/ErrorBoundary';
+import Profile from '../../components/Profile/Profile'
 
 class App extends Component {
 
