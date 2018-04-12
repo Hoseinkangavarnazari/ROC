@@ -23,7 +23,7 @@ module.exports = (function () {
     router.post('/addContact', usersController.addContact);
 
     // DELETE request for eliminate contact
-    router.delete('/delete/:id', usersController.deleteContact);
+    router.delete('/deleteContact', usersController.deleteContact);
 
     return router;
 })();
