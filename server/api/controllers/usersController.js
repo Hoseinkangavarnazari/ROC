@@ -75,9 +75,7 @@ exports.addContact = function (req, res) {
                     console.log("err in finding adder user's ID " + id + err);
                     res.send({ret: false});
                 } 
-                console.log(userDoc.links);
                 userDoc.links.push(newContactDoc._id.toString());     
-                console.log(userDoc.links); 
                 userDoc.save(function(err){           
                     if (err){
                         console.log("err in changing user's data: " + id + err);
@@ -94,5 +92,34 @@ exports.addContact = function (req, res) {
 
 //delete one contact
 exports.deleteContact = function (req, res) {
-    res.send('NOT IMPELEMENTED .. ');
+    usersModel.findOne({'_id':req.body.id},'links', function(err, userDoc){
+        if (err){
+            console.log("err in finding all contacts for user: " + id + err);
+            res.send({ret: false});
+        } 
+        else{
+            var TempList= [];
+            for(var i=0; i < userDoc.links.length; i++){
+                
+                 if(userDoc.links[i] != req.body.deletingContactId){
+                    TempList.push(userDoc.links[i]);
+                 }
+                 
+            }
+            if (TempList.length == userDoc.links.length)
+                res.send({ret: fasle});                
+            else {
+                userDoc.links = TempList;
+                userDoc.save(function(err){           
+                    if (err){
+                        console.log("err in changing user's data: " + id + err);
+                        res.send({ret: false});
+                    }
+                    else{
+                        res.send({ret: true});
+                    } 
+                });
+            }
+        } 
+    });  
 }
