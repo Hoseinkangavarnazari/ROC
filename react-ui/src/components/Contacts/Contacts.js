@@ -1,6 +1,5 @@
 import React from 'react';
 import Contact from './Contact/Contact';
-import classes from './Contacts.css';
 import ErrorBoundary from '../../ErrorBoundary/ErrorBoundary'
 
 const contacts = (props) => props.contacts.map((contact, index) => {

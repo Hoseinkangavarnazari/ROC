@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import classes from './App.css';
 import Contacts from '../../components/Contacts/Contacts';
-import ErrorBoundary from '../../ErrorBoundary/ErrorBoundary';
 import Profile from '../../components/Profile/Profile';
+import WithClass from '../../hoc/WithClass';
+import Aux from '../../hoc/Aux_';
+
 
 class App extends Component {
-
   state = {
     contacts: [
       {
@@ -13,12 +14,20 @@ class App extends Component {
         name: 'Max'
       },
       {
-        id: '12121', 
+        id: '12121',
         name: 'Minirol'
       },
       {
         id: '1212321',
         name: 'javad'
+      },
+      {
+        id: '112121',
+        name: 'saman'
+      },
+      {
+        id: '166621',
+        name: 'sasan'
       }
     ]
   };
@@ -38,22 +47,29 @@ class App extends Component {
     let contacts_ = null;
     if (true) {
       contacts_ = (
-          <Contacts
+        <Contacts
           contacts={this.state.contacts}
           showContactPage={this.showContactPage}
-          />
+        />
       )
     }
     return (
 
-      <div className={classes.App}>
-        <Profile />
-        <div className={classes.ContactsContainer}>
-          {contacts_}
+      // <div className={classes.App}>
+      //   <Profile />
+      //   <div className={classes.ContactsContainer}>
+      //     {contacts_}
+      //   </div>
+      //   <div className={classes.MainContainer}></div>
+      // </div>
+        <div className={classes.App}>
+          <Profile />
+          <div className={classes.ContactsContainer}>
+            {contacts_}
+          </div>
+          <div className={classes.MainContainer}></div>
         </div>
-        <div className={classes.MainContainer}></div>
-      </div>
-
+    
     );
   }
 }
