@@ -1,11 +1,12 @@
 .Contacts {
     position: relative;
-    height: 40px;
+    height: 80px;
     width: 300px;
     background: #3949AB;
     color: white;
     text-align: left;
     padding-left: 10px;
+    border-bottom: rgb(88, 103, 200) solid 1px;
 }
 .Contacts:hover { 
     background:#1A237E; 
@@ -26,10 +27,20 @@
 .gButton {
     position: absolute;
     right: 15px;
-    top: 10px;
+    top: 30px;
 }
 
 .title {
     position: absolute;
-    top: -5px;
+    top: 15px;
+    left:70px;
+}
+
+.Avatar { 
+    position: absolute;
+    top:24%; 
+    border-radius: 50px; 
+    background: rgb(161, 153, 168); 
+    height: 45px;
+    width: 45px;
 }

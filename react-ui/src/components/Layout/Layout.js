@@ -1,14 +1,17 @@
 import React from 'react';
-
+import SideBar from '../../containers/SideBar/SideBar';
 import Aux from '../../hoc/Aux_';
+import MainSection from '../../containers/MainSection/MainSection'
+
 
 const layout = (porps) => (
-    <Aux>
-        <div> SideBar,Main,Notification,callSection </div>
+    <div>
+        <SideBar />
+        <MainSection />
         <main>
             {porps.children}
         </main>
-    </Aux>
+    </div>
 );
 
 export default layout; 

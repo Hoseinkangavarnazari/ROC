@@ -12,6 +12,7 @@ const contacts = (props) => {
 
     return (
         <div className={classes.Contacts}>
+            <div className={classes.Avatar} > </div>
             <p className={classes.title} onClick={props.pageSpec}>{props.name}</p>
             <div className={classes.gButton}>
                 <button onClick={props.voiceCall}>voice</button>
