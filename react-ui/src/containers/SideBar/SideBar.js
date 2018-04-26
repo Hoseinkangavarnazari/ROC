@@ -11,23 +11,28 @@ class App extends Component {
     contacts: [
       {
         id: '121232',
-        name: 'Max'
+        name: 'Max',
+        image:'chexee-128.jpg'
       },
       {
         id: '12121',
-        name: 'Minirol'
+        name: 'Minirol',
+        image:'jsa-128.jpg'
       },
       {
         id: '1212321',
-        name: 'javad'
+        name: 'javad',
+         image:'kerem-128.jpg'
       },
       {
         id: '112121',
-        name: 'saman'
+        name: 'saman',
+         image:'ok-128.jpg'
       },
       {
         id: '166621',
-        name: 'sasan'
+        name: 'sasan',
+         image:'uxceo-128.jpg'
       }
     ]
   };
