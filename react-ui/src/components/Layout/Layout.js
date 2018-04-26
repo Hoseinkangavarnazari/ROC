@@ -7,9 +7,9 @@ import ListExampleChat from '../../components/ListExampleChat/ListExampleChat';
 
 const layout = (porps) => (
     <div>
-        <ListExampleChat />
-        {/* <SideBar />
-        <MainSection /> */}
+        {/* <ListExampleChat /> */}
+        <SideBar />
+        <MainSection />
         <main>
             {porps.children}
         </main>
