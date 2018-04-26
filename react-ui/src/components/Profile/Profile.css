@@ -5,7 +5,7 @@
     left: 0;
     width: 310px;
     height: 100px;
-    background: #1565C0;
+    background: rgb(218, 218, 218);
     padding-left: 10px; 
 }
 .Avatar { 
@@ -21,6 +21,6 @@
     position: absolute;
     top:40%; 
     left: 30%;
-    color: #eee;
+    color: #333;
     font-size: 18px;
 }

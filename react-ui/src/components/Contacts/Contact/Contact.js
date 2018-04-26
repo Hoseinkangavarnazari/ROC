@@ -1,5 +1,10 @@
 import React from 'react';
 import classes from './Contact.css';
+import Avatar from 'material-ui/Avatar';
+import {  ListItem } from 'material-ui/List';
+import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
+
+
 
 
 const contacts = (props) => {
@@ -10,15 +15,18 @@ const contacts = (props) => {
     //     throw new Error('Something went wrong');
     // }
 
+
+
     return (
-        <div className={classes.Contacts}>
-            <div className={classes.Avatar} > </div>
-            <p className={classes.title} onClick={props.pageSpec}>{props.name}</p>
-            <div className={classes.gButton}>
-                <button onClick={props.voiceCall}>voice</button>
-                <button onClick={props.videoCall}>video</button>
-            </div>
-        </div>
+            <ListItem
+                onClick={props.pageSpec}
+                leftAvatar={<Avatar src="" />}
+                size={30}
+                rightIcon={<CommunicationChatBubble />}
+                className={classes.Text}
+            >
+            {props.name}
+            </ListItem>
     )
 };
 

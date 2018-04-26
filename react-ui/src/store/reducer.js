@@ -1,9 +1,9 @@
 const initialState = {
-
+ counter: 0
 }
 
 
-const reducer = (state, action) => {
+const reducer = (state=initialState, action) => {
     return state;
 };
 
