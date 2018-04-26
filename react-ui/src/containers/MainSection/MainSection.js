@@ -1,21 +1,33 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import classes from './MainSection.css';
-const main = null; 
+import UserGenericMenu from '../../components/UserGenericMenu/UserGenericMenu';
 
-class MainSection extends Component { 
 
-    state = { 
-        this.props.user = "test";
+let main = null;
+let UserGenericMenuTitle = "test title username";
+if (true) {
+    main = <UserGenericMenu title={UserGenericMenuTitle} />;
+}
+
+class MainSection extends Component {
+
+    state = {
+        mode: "welcomePage",
     }
-  
-    render(){
-    return(
-        <div className={classes.MainSection}>
-        {main}
-        </div>
-    );
-}
+
+    changeTitleHandler =()=>{
+        this.setState( { title:UserGenericMenuTitle } )
+    }
+
+    render() {
+        return (
+            <div className={classes.MainSection}>
+                <div className={classes.Title}>
+                    {main}
+                </div>
+            </div>
+        );
+    }
 }
 
-
-export default MainSection ;
+export default MainSection;

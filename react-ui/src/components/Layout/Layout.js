@@ -1,13 +1,15 @@
 import React from 'react';
 import SideBar from '../../containers/SideBar/SideBar';
-import Aux from '../../hoc/Aux_';
-import MainSection from '../../containers/MainSection/MainSection'
+import MainSection from '../../containers/MainSection/MainSection';
+import ListExampleChat from '../../components/ListExampleChat/ListExampleChat';
+
 
 
 const layout = (porps) => (
     <div>
-        <SideBar />
-        <MainSection />
+        <ListExampleChat />
+        {/* <SideBar />
+        <MainSection /> */}
         <main>
             {porps.children}
         </main>
