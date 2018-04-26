@@ -5,7 +5,7 @@
     left: 0;
     width: 310px;
     height: 100px;
-    background: #1565C0;
+    background: rgb(218, 218, 218);
     padding-left: 10px; 
 }
 .Avatar { 
@@ -13,14 +13,14 @@
     top:24%; 
     border-radius: 50px; 
     background: rgb(161, 153, 168); 
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
 }
 
 .Name { 
     position: absolute;
     top:40%; 
     left: 30%;
-    color: #eee;
+    color: #333;
     font-size: 18px;
 }

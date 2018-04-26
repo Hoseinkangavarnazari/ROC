@@ -1,5 +1,8 @@
 import React from 'react';
 import classes from './Profile.css';
+import MenuButton from './MenuButton/MenuButton';
+
+
 
 
 const Profile = (props) => {
@@ -12,6 +15,8 @@ const Profile = (props) => {
             <div className={classes.Name}>
              Amir Nazari
             </div>
+            < MenuButton/>
+
         </div>
     )
 };

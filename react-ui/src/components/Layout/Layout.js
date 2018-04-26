@@ -1,14 +1,19 @@
 import React from 'react';
+import SideBar from '../../containers/SideBar/SideBar';
+import MainSection from '../../containers/MainSection/MainSection';
+import ListExampleChat from '../../components/ListExampleChat/ListExampleChat';
 
-import Aux from '../../hoc/Aux_';
+
 
 const layout = (porps) => (
-    <Aux>
-        <div> SideBar,Main,Notification,callSection </div>
+    <div>
+        {/* <ListExampleChat /> */}
+        <SideBar />
+        <MainSection />
         <main>
             {porps.children}
         </main>
-    </Aux>
+    </div>
 );
 
 export default layout; 
