@@ -5,7 +5,7 @@ import {  ListItem } from 'material-ui/List';
 import CommunicationChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
 import { stringify } from 'querystring';
 
-
+import image from '../../../assets/images/ok-128.jpg'; 
 
 
 const contacts = (props) => {
@@ -16,8 +16,8 @@ const contacts = (props) => {
     //     throw new Error('Something went wrong');
     // }
 
-   let avatarURL = "../../../assets/chexee-128.jpg";
-
+   let avatarURL = "https://server6.asanwebhost.com:2083/cpsess2882448630/viewer/home%2fsarvesab%2fpublic_ftp%2fimage/";
+  avatarURL += props.image;
 
     console.log(avatarURL);
 
