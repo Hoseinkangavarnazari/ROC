@@ -9,13 +9,15 @@ exports.oneUser = function (req, res) {
 
 
 //create one contact - used in users signUp
+
+//PreDeletion --> this method is handeld through passport.js googAuth method
 exports.createUser = function (req, res) {
 
     //TODO check for already added number in DB
 
     var newUser = new usersModel();
 
-    newUser.name.firstName = req.body.firstName;
+    newUser.name.givenName = req.body.firstName;
     newUser.name.lastName = req.body.lastName;
     newUser.number = parseInt(req.body.number);
     newUser.save(function(err, inserted_user){
@@ -54,6 +56,7 @@ exports.allContacts = function (req, res) {
 }
 
 //add new contact to User's contacts (Links)
+//TODO -> check the adder and contact not be the same
 exports.addContact = function (req, res) {
     console.log(req.body.number);
     console.log(req.body.adderId);
@@ -61,7 +64,7 @@ exports.addContact = function (req, res) {
     //find new contact DB_id by it number
     usersModel.findOne({'number': parseInt(req.body.number)}).lean().exec(function (err, newContactDoc) {
         if (err){
-            console.log("err in finding all contacts for user: " + id + err);
+            console.log("err in finding all contacts for user: " + adderId + err);
             res.send({ret: false});
         } 
         else if(newContactDoc == null){
@@ -72,13 +75,14 @@ exports.addContact = function (req, res) {
             //add the found Id to requester user Links and contacts
             usersModel.findById(req.body.adderId, function(err, userDoc){
                 if (err){
-                    console.log("err in finding adder user's ID " + id + err);
+                    console.log("err in finding adder user's ID ");
                     res.send({ret: false});
                 } 
                 userDoc.links.push(newContactDoc._id.toString());     
                 userDoc.save(function(err){           
                     if (err){
-                        console.log("err in changing user's data: " + id + err);
+                        console.log("err in changing user's data: ");
+                        throw err;
                         res.send({ret: false});
                     }
                     else{
@@ -122,4 +126,39 @@ exports.deleteContact = function (req, res) {
             }
         } 
     });  
+}
+
+exports.googAuth = function(token, profileID, name, email, done){
+
+    //check if user already exists
+   
+    console.log(name);
+    
+    usersModel.findOne({ googID : profileID }, function(err, user) {
+        if (err){
+            console.log("err in finding logger user");
+            return done(err);
+        }
+
+        else if (user){
+            // if a user is found, log them in
+            return done(null, user);
+        }
+        //if user hasen't been found, create a new one and add to DB
+        else{
+            var newUser = new usersModel();
+            newUser.name = name;
+            newUser.email = email;
+            newUser.googID = profileID;
+            newUser.googToken = token;
+            newUser.number = 123455666;
+            newUser.save(function(err, docs) {
+                if (err){
+                    console.log("err in adding signed Up (new) user");
+                    throw err;
+                }
+                return done(null, newUser);
+            });
+        }
+    })
 }

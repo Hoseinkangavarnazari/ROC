@@ -4,10 +4,13 @@ const Schema = mongoose.Schema;
 
 const user = new Schema({
     name: {
-        firstName: { type: String, required: true },
-        lastName: { type: String, required: true }
+        familyName: { type: String, required: true },
+        givenName: { type: String, required: true }
     },
-    number: { type: Number, required: true, unique: true },
+    email: { type: String, required: true },
+    googID: { type: String, required: true },
+    googToken: { type: String, required: true },
+    number: { type: Number, required: true },
     links:Array
 });
 
